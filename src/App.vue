@@ -78,6 +78,9 @@ export default {
 
   #app.warm {
     background-image: url('./assets/warm-bg.jpg');
+    background-size: auto;
+    background-position: center;
+    transition: 0.4s;
   }
 
   main {
