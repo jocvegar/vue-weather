@@ -27,11 +27,15 @@
 <script>
 export default {
   name: 'App',
+  mounted() {
+    console.log("aca")
+    console.log(typeof process.env.VUE_APP_API_KEY)
+    console.log("aca2")
+  },
   data: function() {
     return {
       query: '',
       weather: {},
-      api_key: '',
       base_url: 'http://api.openweathermap.org/data/2.5/',
     }
   }, 
@@ -39,7 +43,7 @@ export default {
     fetchWeather(e) {
       // console.log(e.key)
       if (e.key == 'Enter') {
-        fetch(`${this.base_url}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
+        fetch(`${this.base_url}weather?q=${this.query}&units=metric&APPID=${process.env.VUE_APP_API_KEY}`)
         .then(response => {
           return response.json();
         }).then(this.setResults);
